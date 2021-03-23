@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<div class="prop">
+    <img class="prop_img" src="{{ url_for('get_image',filename=prop.photo) }}"/>
+    <div class="propinfo">
+    <p class="prop_title">{{prop.title}}</p>
+    <div class="prop-line">
+        <p class="prop_price">${{prop.price}}</p>
+        <p class="prop_type">{{prop.proptype}}</p>
+    </div>
+    <p class="prop_desc">{{prop.desc}}</p>
+    <div class="prop-line">
+        <p class="prop_room">{{prop.room}} Bedrooms</p>
+        <p class="prop_broom">{{prop.bathroom}} Bathrooms</p>
+    </div>
+    <p class="prop_location">{{prop.location}}</p>
+    <button class="btn btn-primary" id=prop_btn >Email Realtor</button>
+    </div>
+</div>
+
+{% endblock %}
