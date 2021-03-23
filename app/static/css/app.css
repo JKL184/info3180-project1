@@ -17,6 +17,7 @@ h5{
 	grid-gap: 10px;
     width: 100%;
     padding-top: 25px;
+    vertical-align: top;
 }
 .propunit {
     display:inline;
