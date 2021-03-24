@@ -5,9 +5,9 @@
 	<ul class="proplist">
 		{% for p in props %}
 		<li class="propunit">
-			<img class="p_img" src="{{ url_for('get_image',filename=p.photo) }}" />
+			<img class="p_img" src="{{ url_for('get_image',filename=p.photo) }}">
 			<p class="p_title">{{p.title}}</p>
-			<p  class="p_location">{{p.location}}</p>
+			<p  class="p_location"><img src=".\static\images\map-pin.svg">{{p.location}}</p>
 			<p  class="p_price">${{p.price}}</p>
 			<a class="btn btn-primary" id=p_link href="{{ url_for('get_property',propertyid=p.id) }}">View Property</a>
 		</li>

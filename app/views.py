@@ -54,13 +54,7 @@ def newProperty():
                 flash('Property was not added.','danger')
     return render_template('new_property.html', form=form)
 
-def get_uploaded_images():
-    rootdir = os.getcwd()
-    namelist=[]
-    for subdir, dirs, files in os.walk(rootdir+"/uploads"):
-        for file in files:
-            namelist.append(file)
-    return namelist
+
 
 @app.route("/property/<propertyid>")
 def get_property(propertyid):
@@ -72,23 +66,11 @@ def properties():
     props=Property.query.all()
     return render_template('properties.html', props=props)
 
-def get_uploaded_images():
-    rootdir = os.getcwd()
-    namelist=[]
-    for subdir, dirs, files in os.walk(rootdir+"/uploads"):
-        for file in files:
-            namelist.append(file)
-    return namelist
 
 @app.route("/uploads/<filename>")
 def get_image(filename):
     root_dir = os.getcwd()
     return send_from_directory(os.path.join(root_dir, app.config['UPLOAD_FOLDER']), filename)
-
-@app.route("/files")
-def files():
-    pics=get_uploaded_images()
-    return render_template('files.html', pics=pics)
 
 ###
 # The functions below should be applicable to all Flask apps.
